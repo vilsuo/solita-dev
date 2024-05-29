@@ -1,0 +1,23 @@
+
+table, th, td {
+  border: 1px solid black;
+}
+.stations-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.stations-table thead {
+  background-color: lightblue;
+}
+.stations-table tbody tr:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.station-info {
+  padding: 10px;
+  border: 1px solid black;
+}
+.station-info p span {
+  color: darkgreen;
+}

@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import "./index.css"
 
 import ErrorPage from './pages/ErrorPage.tsx';
 
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
   {
     path: "/stations/:id",
     loader: stationLoader,
-    element: <Station />
+    element: <Station />,
+    errorElement: <ErrorPage />,
   }
 ]);
 
