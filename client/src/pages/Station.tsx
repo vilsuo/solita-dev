@@ -1,27 +1,29 @@
 import axios from "axios";
 import { Params, useLoaderData, useNavigate } from "react-router-dom";
 import { Station as SingleStation } from "../type";
+import StationInfo from "../components/StationInfo";
 
 const BASE_URL = '/api';
 
+export type StationResponse = {
+  station: SingleStation,
+  starting: number;
+  averageDistance: number;
+  averageDuration: number;
+  ending: number;
+}
+
 // https://stackoverflow.com/a/77481099
-export const loader = async ({ params }: { params: Params<"id">}) => {
+export const loader = async ({ params }: { params: Params<"id">})
+  : Promise<StationResponse> =>
+{
   const response = await axios.get(`${BASE_URL}/stations/${params.id}`);
   return response.data;
 };
 
-/*
-Display:
-  Station name
-  Station address
-  Total number of journeys starting from the station
-  Total number of journeys ending at the station
-  Average distance of journeys starting from the station
-  Avarage duration of journeys starting from the station
-*/
-
 const Station = () => {
-  const station = useLoaderData() as SingleStation;
+  const stationInfo = useLoaderData() as StationResponse;
+
   const navigate = useNavigate();
 
   const handleBackNavigate = () => {
@@ -30,11 +32,7 @@ const Station = () => {
 
   return (
     <div className="station">
-      <h1>{station.stationName}</h1>
-
-      <div>
-
-      </div>
+      <StationInfo stationInfo={stationInfo} />
 
       <button onClick={handleBackNavigate}>Back</button>
     </div>

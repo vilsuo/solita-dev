@@ -1,18 +1,18 @@
 import { Station } from "../type";
 
-interface StationTableProps {
+interface StationsTableProps {
   stations: Station[];
   navigate: (id: Station["id"]) => void;
 }
 
-const StationTable = ({ stations, navigate }: StationTableProps) => {
+const StationsTable = ({ stations, navigate }: StationsTableProps) => {
 
   return (
-    <table>
+    <table className="stations-table">
       <thead>
         <tr>
-          <th>Station</th>
-          <th>Address</th>
+          <th>Station name</th>
+          <th>Station Address</th>
         </tr>
       </thead>
       <tbody>
@@ -27,4 +27,4 @@ const StationTable = ({ stations, navigate }: StationTableProps) => {
   );
 };
 
-export default StationTable;
+export default StationsTable;

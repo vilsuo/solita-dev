@@ -1,4 +1,4 @@
-import StationTable from "../components/StationTable";
+import StationsTable from "../components/StationsTable";
 import { Station } from "../type";
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ const Stations = () => {
     <div className="stations">
       <h1>Stations</h1>
 
-      <StationTable
+      <StationsTable
         stations={stations}
         navigate={handleNavigate}
       />
