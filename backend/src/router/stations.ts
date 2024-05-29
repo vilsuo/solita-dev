@@ -10,7 +10,11 @@ const journeyRepository = AppDataSource.getRepository(Journey);
 
 router.get("/", async (_req, res) => {
   try {
-    const stations = await stationRepository.find();
+    const stations = await stationRepository.find({
+      order: {
+        stationName: { direction: "ASC" },
+      },
+    });
     return res.status(200).send(stations);
 
   } catch (error: unknown) {
