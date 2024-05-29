@@ -1,4 +1,5 @@
 import { DataSource } from "typeorm";
+import { SnakeNamingStrategy } from "typeorm-naming-strategies";
 import { Station } from "./entity/Station";
 import { Journey } from "./entity/Journey";
 
@@ -20,4 +21,5 @@ export const AppDataSource = new DataSource({
   entities: [Station, Journey],
   subscribers: [],
   migrations: [],
+  namingStrategy: new SnakeNamingStrategy(),
 });

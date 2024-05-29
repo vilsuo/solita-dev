@@ -13,20 +13,20 @@ export class Station {
   id!: number;
 
   @Column(VARCHAR_100)
-  station_name!: string | null;
+  stationName!: string | null;
 
   @Column(VARCHAR_100)
-  station_address!: string | null;
+  stationAddress!: string | null;
 
   @Column(VARCHAR_100)
-  coordinate_x!: string | null;
+  coordinateX!: string | null;
 
   @Column(VARCHAR_100)
-  coordinate_y!: string | null;
+  coordinateY!: string | null;
 
-  @OneToMany(() => Journey, (journey) => journey.departure_station_id)
+  @OneToMany(() => Journey, (journey) => journey.departureStationId)
   departures!: Journey[];
 
-  @OneToMany(() => Journey, (journey) => journey.return_station_id)
+  @OneToMany(() => Journey, (journey) => journey.returnStationId)
   returns!: Journey[];
 };

@@ -7,28 +7,28 @@ export class Journey {
   id!: number;
 
   @Column({ type: "timestamp", nullable: true })
-  departure_date_time!: Date | null;
+  departureDateTime!: Date | null;
 
   @Column({ type: "timestamp", nullable: true })
-  return_date_time!: Date | null;
+  returnDateTime!: Date | null;
 
   // #######################
   // see https://github.com/typeorm/typeorm/issues/586#issuecomment-311282863
 
   @Column({ type: "integer", name: 'departure_station_id' })
-  departure_station_id!: number;
+  departureStationId!: number;
 
   @ManyToOne(() => Station, (station) => station.departures)
   @JoinColumn({ name: 'departure_station_id' })
-  departure_station!: Journey;
+  departureStation!: Journey;
 
 
   @Column({  type: "integer", name: 'return_station_id' })
-  return_station_id!: number;
+  returnStationId!: number;
 
   @ManyToOne(() => Station, (station) => station.returns)
   @JoinColumn({ name: 'return_station_id' })
-  return_station!: Journey;
+  returnStation!: Journey;
   
   // #######################
 
