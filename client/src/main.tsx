@@ -1,6 +1,26 @@
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import ErrorPage from './pages/ErrorPage.tsx';
+
+// pages
+import Stations, { loader as stationsLoader } from './pages/Stations.tsx';
+import Station, { loader as stationLoader } from './pages/Station.tsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Stations />,
+    loader: stationsLoader,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/stations/:id",
+    loader: stationLoader,
+    element: <Station />
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <App />,
+  <RouterProvider router={router} />
 );

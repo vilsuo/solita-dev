@@ -1,14 +1,11 @@
-import { Station } from "../type"
+import { Station } from "../type";
 
 interface StationTableProps {
   stations: Station[];
+  navigate: (id: Station["id"]) => void;
 }
 
-const StationTable = ({ stations }: StationTableProps) => {
-
-  const formatCoordinates = (station: Station) => {
-    return `(${station.coordinateX}, ${station.coordinateY})`
-  };
+const StationTable = ({ stations, navigate }: StationTableProps) => {
 
   return (
     <table>
@@ -16,15 +13,13 @@ const StationTable = ({ stations }: StationTableProps) => {
         <tr>
           <th>Station</th>
           <th>Address</th>
-          <th>Coordinates (x, y)</th>
         </tr>
       </thead>
       <tbody>
         {stations.map((station) =>
-          <tr key={station.id}>
+          <tr key={station.id} onClick={() => navigate(station.id)}>
             <td>{station.stationName}</td>
             <td>{station.stationAddress}</td>
-            <td>{formatCoordinates(station)}</td>
           </tr>
         )}
       </tbody>
