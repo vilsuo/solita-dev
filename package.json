@@ -1,0 +1,15 @@
+{
+  "name": "dev-academy-spring-2024-exercise",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "scripts": {
+    "install": "cd backend && npm install && cd ../client && npm install",
+    "db:up": "docker compose up --build --renew-anon-volumes -d",
+    "build:client": "cd client && rm -rf dist && npm run build && cp -r dist ../backend/build",
+    "build:backend": "cd backend && rm -rf build && npm run tsc",
+    "build": "npm run build:backend && npm run build:client",
+    "start": "node backend/build/src/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
