@@ -36,7 +36,7 @@ To build, run the command
 ```
 npm run build
 ```
-in the root folder. Then start the database container. The app will be accessible in http://localhost:3000 after executing the command
+in the root folder. The app will be accessible in http://localhost:3000 after executing the command
 ```
 npm run start
 ```
