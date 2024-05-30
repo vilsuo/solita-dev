@@ -22,13 +22,23 @@ In the backend folder
 ```
 npm run dev
 ```
-You can access backend in PORT 3000
+You can access backend in http://localhost:3000/api
 
-#### Cliend
+#### Client
 In the client folder
 ```
 npm run dev
 ```
-You can access client in PORT 5173
+You can access client in http://localhost:5173
 
-### Building
+### Production
+To build, run the command
+```
+npm run build
+```
+in the root folder. Then start the database container. The app will be accessible in http://localhost:3000 after executing the command
+```
+npm run start
+```
+in the root folder
+
