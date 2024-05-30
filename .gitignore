@@ -1,3 +1,8 @@
 node_modules
 
+# db init
 init-db.tar.gz
+
+# build files
+build
+dist
